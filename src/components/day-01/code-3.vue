@@ -13,7 +13,8 @@
     <input type="text" v-model="newArr.img" />
     <br />
     <button type="button" @click="addItem()">添加</button>
-
+    <hr/>
+    <myItem></myItem>
     <table>
       <tr>
         <th>编号</th>
@@ -26,7 +27,7 @@
       <tr v-for="(value, index) in arr" :key="value.id">
         <td>{{ index + 1 }}</td>
         <td>{{ value.brandName }}</td>
-        <td>{{ value.date }}</td>
+        <td>{{ value.date | dateFormat }}</td>
         <td :style="{ color: value.price > 10000 ? 'red' : 'black' }">
           {{ value.price }}
         </td>
@@ -35,7 +36,7 @@
       </tr>
       <tr>
         <td>总价格</td>
-        <td colspan="5">{{total()}}</td>
+        <td colspan="5">{{ total() }}</td>
       </tr>
       <tr>
         <td colspan="6" v-if="arr.length == 0">没有数据，请添加</td>
@@ -45,7 +46,12 @@
 </template>
 
 <script>
+import { dateFormat } from "../../utils/filters";
+import myItem from "../day-02/code-02.vue";
 export default {
+  components: {
+    myItem,
+  },
   data() {
     return {
       newArr: {
@@ -53,6 +59,9 @@ export default {
         date: "",
         price: "",
         img: "http://pic-bucket.ws.126.net/photo/0008/2020-03-11/F7EJD9BE6R0M0008NOS.jpg?imageView&thumbnail=300y225",
+      },
+      filters: {
+        dateFormat,
       },
       arr: [
         {
