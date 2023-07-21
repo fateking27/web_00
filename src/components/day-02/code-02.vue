@@ -9,13 +9,13 @@
 export default {
   data() {
     return {
-      isshow: false,
+      isshow: true,
     };
   },
   methods: {
     show() {
       this.isshow = true;
-      this.this.$nextTick(() => {
+      this.$nextTick(() => {
         console.log(this.$refs.myinput);
         this.$refs.myinput.focus();
       });
