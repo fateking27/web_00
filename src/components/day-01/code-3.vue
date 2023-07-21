@@ -89,14 +89,14 @@ export default {
     },
     //添加
     addItem() {
-      // this.arr.push(this.newArr)
-      this.arr.push({
-        id: this.arr.length + 1,
-        brandName: this.newArr.brandName,
-        date: this.newArr.date,
-        price: this.newArr.price,
-        img: this.newArr.img,
-      });
+      this.arr.push({...this.newArr})
+      // this.arr.push({
+      //   id: this.arr.length + 1,
+      //   brandName: this.newArr.brandName,
+      //   date: this.newArr.date,
+      //   price: this.newArr.price,
+      //   img: this.newArr.img,
+      // });
 
       // localStorage.setItem("data", JSON.stringify(this.arr));
     },
