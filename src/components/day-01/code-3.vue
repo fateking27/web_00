@@ -48,10 +48,12 @@
 <script>
 import { dateFormat } from "../../utils/filters";
 import myItem from "../day-02/code-02.vue";
+
 export default {
   components: {
     myItem,
   },
+
   data() {
     return {
       newArr: {
@@ -88,6 +90,7 @@ export default {
       ],
     };
   },
+
   mounted() {
     // 从localStorage中获取已存储的数据
     // const storedData = localStorage.getItem("data");
@@ -95,6 +98,7 @@ export default {
       this.arr = JSON.parse(storedData);
     }
   },
+
   methods: {
     //删除
     delItem(index) {
@@ -115,6 +119,7 @@ export default {
 
       // localStorage.setItem("data", JSON.stringify(this.arr));
     },
+    
     total() {
       let sum = 0;
       for (let i = 0; i < this.arr.length; i++) {
