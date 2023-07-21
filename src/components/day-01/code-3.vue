@@ -34,6 +34,10 @@
         <td><button @click="delItem(index)">删除</button></td>
       </tr>
       <tr>
+        <td>总价格</td>
+        <td colspan="5">{{total()}}</td>
+      </tr>
+      <tr>
         <td colspan="6" v-if="arr.length == 0">没有数据，请添加</td>
       </tr>
     </table>
@@ -101,6 +105,13 @@ export default {
       // });
 
       // localStorage.setItem("data", JSON.stringify(this.arr));
+    },
+    total() {
+      let sum = 0;
+      for (let i = 0; i < this.arr.length; i++) {
+        sum += this.arr[i].price;
+      }
+      return sum;
     },
   },
 };
