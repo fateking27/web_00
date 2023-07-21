@@ -28,7 +28,7 @@
         <td>{{ index + 1 }}</td>
         <td>{{ value.brandName }}</td>
         <td>{{ value.date | dateFormat }}</td>
-        <td :style="{ color: value.price > 10000 ? 'red' : 'black' }">
+        <td :class="{ red: value.price > 10000 }">
           {{ value.price }}
         </td>
         <td><img :src="value.img" alt="" /></td>
@@ -127,6 +127,9 @@ export default {
 </script>
 
 <style lang="less">
+.red{
+  color: red;
+}
 table {
   width: 700px;
   margin-top: 20px;
