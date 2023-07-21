@@ -4,7 +4,7 @@
     <input type="text" v-model="newArr.brandName" />
     <br />
     <label>创立时间：</label>
-    <input type="text" v-model="newArr.date" />
+    <input type="date" v-model="newArr.date" />
     <br />
     <label>价格：</label>
     <input type="number" v-model="newArr.price" />
@@ -31,6 +31,9 @@
         <td><img :src="value.img" alt="" /></td>
         <td><button @click="delItem(index)">删除</button></td>
       </tr>
+      <tr>
+        <td colspan="6" v-if="arr.length == 0">没有数据，请添加</td>
+      </tr>
     </table>
   </div>
 </template>
@@ -43,7 +46,7 @@ export default {
         brandName: "",
         date: "",
         price: "",
-        img: "",
+        img: "http://pic-bucket.ws.126.net/photo/0008/2020-03-11/F7EJD9BE6R0M0008NOS.jpg?imageView&thumbnail=300y225",
       },
       arr: [
         {
@@ -72,7 +75,7 @@ export default {
   },
   mounted() {
     // 从localStorage中获取已存储的数据
-    const storedData = localStorage.getItem("data");
+    // const storedData = localStorage.getItem("data");
     if (storedData) {
       this.arr = JSON.parse(storedData);
     }
@@ -82,10 +85,11 @@ export default {
     delItem(index) {
       this.arr.splice(index, 1);
 
-      localStorage.setItem("data", JSON.stringify(this.arr));
+      // localStorage.setItem("data", JSON.stringify(this.arr));
     },
     //添加
     addItem() {
+      // this.arr.push(this.newArr)
       this.arr.push({
         id: this.arr.length + 1,
         brandName: this.newArr.brandName,
@@ -94,7 +98,7 @@ export default {
         img: this.newArr.img,
       });
 
-      localStorage.setItem("data", JSON.stringify(this.arr));
+      // localStorage.setItem("data", JSON.stringify(this.arr));
     },
   },
 };
@@ -113,7 +117,9 @@ th {
   border-collapse: collapse;
   text-align: center;
 }
-
+tr{
+  text-align: center;
+}
 th {
   background-color: aqua;
 }
