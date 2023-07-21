@@ -13,7 +13,7 @@
     <input type="text" v-model="newArr.img" />
     <br />
     <button type="button" @click="addItem()">添加</button>
-    <hr/>
+    <hr />
     <myItem></myItem>
     <table>
       <tr>
@@ -127,7 +127,7 @@ export default {
 </script>
 
 <style lang="less">
-.red{
+.red {
   color: red;
 }
 table {
