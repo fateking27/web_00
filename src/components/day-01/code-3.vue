@@ -27,7 +27,9 @@
         <td>{{ index + 1 }}</td>
         <td>{{ value.brandName }}</td>
         <td>{{ value.date }}</td>
-        <td>{{ value.price }}</td>
+        <td :style="{ color: value.price > 10000 ? 'red' : 'black' }">
+          {{ value.price }}
+        </td>
         <td><img :src="value.img" alt="" /></td>
         <td><button @click="delItem(index)">删除</button></td>
       </tr>
@@ -89,7 +91,7 @@ export default {
     },
     //添加
     addItem() {
-      this.arr.push({...this.newArr})
+      this.arr.push({ ...this.newArr });
       // this.arr.push({
       //   id: this.arr.length + 1,
       //   brandName: this.newArr.brandName,
@@ -117,9 +119,10 @@ th {
   border-collapse: collapse;
   text-align: center;
 }
-tr{
+tr {
   text-align: center;
 }
+
 th {
   background-color: aqua;
 }
