@@ -28,7 +28,7 @@
         </td>
         <td><button @click="delItem(index)">删除</button></td>
       </tr>
-      <tr>
+      <tr v-if="arr.length > 0">
         <td>统计：</td>
         <td colspan="2">总价格：{{ total() }}</td>
         <td colspan="2">平均价为：{{total_()}}</td>
@@ -86,7 +86,6 @@ export default {
     //删除
     delItem(index) {
       this.arr.splice(index, 1);
-
       localStorage.setItem("data", JSON.stringify(this.arr));
     },
     //添加
