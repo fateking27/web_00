@@ -31,7 +31,7 @@
       <tr v-if="arr.length > 0">
         <td>统计：</td>
         <td colspan="2">总价格：{{ total() }}</td>
-        <td colspan="2">平均价为：{{total_()}}</td>
+        <td colspan="2">平均价为：{{ total_() }}</td>
       </tr>
       <tr>
         <td colspan="6" v-if="arr.length == 0">没有数据，请添加</td>
@@ -86,7 +86,7 @@ export default {
     //删除
     delItem(index) {
       this.arr.splice(index, 1);
-      localStorage.setItem("data", JSON.stringify(this.arr));
+      // localStorage.setItem("data", JSON.stringify(this.arr));
     },
     //添加
     addItem() {
@@ -99,14 +99,14 @@ export default {
       //   img: this.newArr.img,
       // });
 
-      localStorage.setItem("data", JSON.stringify(this.arr));
+      // localStorage.setItem("data", JSON.stringify(this.arr));
     },
 
     total() {
       let sum = 0;
       for (let i = 0; i < this.arr.length; i++) {
         let num = this.arr[i].price;
-        sum += +num
+        sum += +num;
       }
       return +sum;
     },
@@ -117,6 +117,11 @@ export default {
       }
       const average = sum / this.arr.length;
       return average.toFixed(2);
+    },
+  },
+  watch: {
+    arr() {
+      localStorage.setItem("data", JSON.stringify(this.arr));
     },
   },
 };
