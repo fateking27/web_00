@@ -3,7 +3,7 @@
     <div class="left">
       <slot name="left"></slot>
     </div>
-    <div class="center">{{ title }}</div>
+    <div class="center"></div>
     <div class="right">
       <slot name="right"></slot>
     </div>
@@ -15,7 +15,7 @@ export default {
   data() {
     return {
       title: {
-        
+
       },
     };
   },
