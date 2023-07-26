@@ -1,18 +1,16 @@
 <template>
   <div class="list">
-    <div class="my-goods-item" v-for='i in 5'>
+    <div class="my-goods-item">
       <div class="left">
         <div class="custom-control custom-checkbox">
-          <input type="checkbox"
-                 class="custom-control-input">
+          <input type="checkbox" class="custom-control-input" />
           <label class="custom-control-label">
-            <img src="@/assets/logo.png"
-                 alt="">
+            <img src="@/assets/logo.png" alt="" />
           </label>
         </div>
       </div>
       <div class="right">
-        <div class="top"> 商品名称 </div>
+        <div class="top">商品名称</div>
         <div class="bottom">
           <span class="price">¥ 价格</span>
           <!-- 数量组件 -->
@@ -23,9 +21,21 @@
 </template>
 
 <script>
+import wn_counter from "./wn_counter.vue.vue";
 export default {
-
-}
+  props: {
+    goods: {
+      type: Object,
+      required: true,
+    },
+  },
+  data() {
+    return {};
+  },
+  components: {
+    wn_counter,
+  },
+};
 </script>
 
 <style lang="less" scoped>
