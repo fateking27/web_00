@@ -10,7 +10,7 @@
 export default {
   data() {
     return {
-      message: '这是子组件传递给父组件的数据',
+      message: '这是子组件传递的数据',
     };
   },
   methods: {
