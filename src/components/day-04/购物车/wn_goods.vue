@@ -1,7 +1,6 @@
 <template>
   <div class="list">
-    <div class="my-goods-item"
-         v-for='i in 5'>
+    <div class="my-goods-item" v-for='i in 5'>
       <div class="left">
         <div class="custom-control custom-checkbox">
           <input type="checkbox"
