@@ -3,17 +3,27 @@
     <div class="my-goods-item">
       <div class="left">
         <div class="custom-control custom-checkbox">
-          <input type="checkbox" class="custom-control-input" />
-          <label class="custom-control-label">
-            <img src="@/assets/logo.png" alt="" />
+          <input type="checkbox"
+                 class="custom-control-input"
+                 v-model='goods.goods_state'
+                 :id='goods.goods_id'>
+          <label class="custom-control-label"
+                 :for='goods.goods_id'>
+            <img :src="goods.goods_img"
+                 alt="">
           </label>
         </div>
       </div>
       <div class="right">
-        <div class="top">商品名称</div>
+        <div class="top"> {{goods.goods_name}} </div>
         <div class="bottom">
-          <span class="price">¥ 价格</span>
+          <span class="price">¥ {{goods.goods_price}}</span>
           <!-- 数量组件 -->
+          <wn_counter :current='goods'
+          ></wn_counter>
+          <!-- <wn_counter :cnt='goods.goods_count'
+          @addCount='goods.goods_count++'
+          @subCount='goods.goods_count>1 && goods.goods_count--'></wn_counter> -->
         </div>
       </div>
     </div>
@@ -21,27 +31,21 @@
 </template>
 
 <script>
-import wn_counter from "./wn_counter.vue.vue";
+import wn_counter from './wn_counter.vue'
 export default {
   props: {
     goods: {
       type: Object,
-      required: true,
-    },
-  },
-  data() {
-    return {};
+      required: true
+    }
   },
   components: {
-    wn_counter,
-  },
-};
+    wn_counter
+  }
+}
 </script>
 
 <style lang="less" scoped>
-.list {
-  padding: 45px 0 50px 0;
-}
 .my-goods-item {
   display: flex;
   padding: 10px;

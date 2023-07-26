@@ -7,7 +7,8 @@ Vue.use(ElementUI)
 // import App from "./components/day-01/code-3.vue";
 // import App from "./components/day-03/code-father.vue";
 // import App from "./components/todo/code-01.vue";
-import App from "./components/day-04/作用域插槽/father.vue";
+// import App from "./components/day-04/作用域插槽/father.vue";
+import App from "./components/day-04/购物车/cart.vue";
 
 
 Vue.config.productionTip = false;
