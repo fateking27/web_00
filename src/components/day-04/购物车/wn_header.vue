@@ -1,5 +1,5 @@
 <template>
-  <div class="my-header"> 标题 </div>
+  <div class="my-header"> 购物车 </div>
 </template>
 
 <script>
