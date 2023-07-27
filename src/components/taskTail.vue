@@ -3,7 +3,7 @@
     <h2>任务详情</h2>
     <div v-if="tasks">
       <h3>{{ tasks.title }}</h3>
-      <p>{{ tasks.description }}</p>
+      <p>{{ tasks.task }}</p>
       <p>截止日期: {{ tasks.deadline }}</p>
     </div>
     <router-link to="/task-list">返回</router-link>

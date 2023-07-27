@@ -4,11 +4,11 @@
     <form @submit.prevent="addTask">
       <label for="title">标题:</label>
       <input type="text" id="title" v-model="newTask.title" required /><br />
-      <label for="description">任务描述:</label>
+      <label for="task">任务描述:</label>
       <input
         type="text"
-        id="description"
-        v-model="newTask.description"
+        id="task"
+        v-model="newTask.task"
         required
       /><br />
       <label for="deadline">添加日期:</label>
@@ -26,7 +26,7 @@
     <ul>
       <li v-for="task in tasks" :key="task.id">
         <h3>{{ task.title }}</h3>
-        <p>{{ task.description }}</p>
+        <p>{{ task.task }}</p>
         <p>添加日期: {{ task.deadline }}</p>
         <button @click="goToTaskDetail(task.id)">任务详情</button>
         <hr />
@@ -45,19 +45,19 @@ export default {
         {
           id: 1,
           title: "任务1",
-          description: "这是任务1的描述",
+          task: "这是任务1的描述",
           deadline: "2021-12-31",
         },
         {
           id: 2,
           title: "任务2",
-          description: "这是任务2的描述",
+          task: "这是任务2的描述",
           deadline: "2022-01-15",
         },
       ],
       newTask: {
         title: "",
-        description: "",
+        task: "",
         deadline: "",
       },
     };
@@ -75,7 +75,7 @@ export default {
     addTask() {
       if (
         this.newTask.title &&
-        this.newTask.description &&
+        this.newTask.task &&
         this.newTask.deadline
       ) {
         const newId =
@@ -83,12 +83,12 @@ export default {
         this.tasks.push({
           id: newId,
           title: this.newTask.title,
-          description: this.newTask.description,
+          task: this.newTask.task,
           deadline: this.newTask.deadline,
         });
         this.newTask = {
           title: "",
-          description: "",
+          task: "",
           deadline: "",
         };
       }
