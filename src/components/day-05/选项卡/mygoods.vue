@@ -5,7 +5,8 @@
 </template>
 
 <script>
-
+import mytableVue from './mytable.vue'
+import {directives} from '@/utils/directives'
 export default {
 
 	
