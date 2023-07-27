@@ -1,29 +1,26 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <!-- 添加超链接
+    router-link:必须设置to  to='路由路径'   值需要参照路由配置-->
+    <!-- <router-link to="/index">首页</router-link> &nbsp;&nbsp;&nbsp;&nbsp;
+    <router-link to="/login">登陆</router-link>&nbsp;&nbsp;&nbsp;&nbsp; -->
+    <h1>任务管理</h1>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import taskList from './components/taskList.vue';
+import taskTail from './components/taskTail.vue';
 
 export default {
-  name: 'App',
   components: {
-    HelloWorld
-  }
-}
+    taskList,taskTail
+  },
+  name: "App",
+};
 </script>
 
 <style lang="less">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+
 </style>

@@ -5,8 +5,8 @@
         <slot name="thead"></slot>
       </thead>
       <tbody>
-        <tr>
-          <slot name="tbody" :value='v' :index='i'></slot>
+        <tr v-for="(v, i) in list" :key="v.id">
+          <slot name="tbody" :value="v" :index="i"></slot>
         </tr>
       </tbody>
     </table>
@@ -20,7 +20,9 @@ export default {
       type: Array,
     },
   },
-  created() {},
+  created() {
+    console.log(this.list);
+  },
 };
 </script>
 
