@@ -22,17 +22,17 @@
     </form>
     <hr />
     <h2>任务列表</h2>
-    <hr>
+    <hr />
     <ul>
       <li v-for="task in tasks" :key="task.id">
         <h3>{{ task.title }}</h3>
         <p>{{ task.description }}</p>
         <p>添加日期: {{ task.deadline }}</p>
-        <button  @click="goToTaskDetail(task.id)">任务详情</button>
-        <hr>
+        <button @click="goToTaskDetail(task.id)">任务详情</button>
+        <hr />
       </li>
     </ul>
-    <hr>
+    <hr />
   </div>
 </template>
 
@@ -62,6 +62,15 @@ export default {
       },
     };
   },
+
+  mounted() {
+    // 从localStorage中获取已存储的数据
+    const storedData = localStorage.getItem("data");
+    if (storedData) {
+      this.tasks = JSON.parse(storedData);
+    }
+  },
+
   methods: {
     addTask() {
       if (
@@ -83,6 +92,7 @@ export default {
           deadline: "",
         };
       }
+      localStorage.setItem("data", JSON.stringify(this.tasks));
     },
     goToTaskDetail(taskId) {
       this.$router.push({ path: `/task/${taskId}` });
