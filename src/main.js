@@ -14,7 +14,8 @@ import App from './App.vue'
 
 Vue.config.productionTip = false;
 
-import router from "./ruoter/router.js";
+// import router from "./ruoter/router.js";
+import router from "./ruoter/index.js";
 
 new Vue({
   router,

@@ -3,12 +3,13 @@ import VueRouter from "vue-router";
 Vue.use(VueRouter);
 
 import Index from '@/components/day-05/index.vue'
-import Login from '@/components/day-05/login.vue'
+import School from '@/components/day-05/school.vue'
 
 const router = new VueRouter({
   routes: [
+    { path: "/", redirect:'/index' },
     { path: "/index", component: Index },
-    { path: "/login", component: Login },
+    { path: "/school/:id", component: School },
   ],
 });
 
