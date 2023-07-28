@@ -1,6 +1,14 @@
 <template>
-  <div>
+  <div class="school">
     <h1>这是{{ schoolName }}校区</h1>
+    <button @click.prevent="jump('detail')">就业介绍</button>&nbsp;&nbsp;
+    <button @click.prevent="jump('jobinfo')">就业详情</button>&nbsp;&nbsp;
+    <button @click.prevent="jump('talk')">线上咨询</button>&nbsp;&nbsp;
+    <!-- <router-link :to="'/school' + id + '/jobinfo'">就业详情</router-link
+    >&nbsp;&nbsp;
+    <router-link :to="'/school' + id + '/talk'">线上咨询</router-link
+    >&nbsp;&nbsp; -->
+    <router-view></router-view>
   </div>
 </template>
 <script>
@@ -9,7 +17,13 @@ export default {
   data() {
     return {
       schoolName: "",
+      id: "",
     };
+  },
+  methods: {
+    jump(name) {
+      this.$router.push({ name: name }).catch((err) => {});
+    },
   },
   // 从另外一个路由跳转到当前路由，需要加载当前组件，触发mounted
   mounted() {
@@ -39,9 +53,9 @@ export default {
         console.log("本次的id:", id);
 
         if (id == 1) {
-          this.schoolName = "成都";
-        } else if (id == 2) {
           this.schoolName = "天府";
+        } else if (id == 2) {
+          this.schoolName = "成都";
         } else if (id == 3) {
           this.schoolName = "广州";
         } else if (id == 4) {
@@ -57,4 +71,9 @@ export default {
 };
 </script>
 <style lang='less' scoped>
+.school {
+  background-color: #ccc;
+  padding: 10px;
+  margin-top: 10px;
+}
 </style>
