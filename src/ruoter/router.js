@@ -7,6 +7,7 @@ Vue.use(VueRouter);
 
 const router = new VueRouter({
   routes: [
+    { path: "/", component: taskList },
     { path: "/task-list", component: taskList },
     { path: "/task/:taskId", component: taskTail },
   ],

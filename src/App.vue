@@ -10,13 +10,8 @@
 </template>
 
 <script>
-import taskList from './components/taskList.vue';
-import taskTail from './components/taskTail.vue';
 
 export default {
-  components: {
-    taskList,taskTail
-  },
   name: "App",
 };
 </script>
