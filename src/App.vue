@@ -19,8 +19,8 @@ export default {
 </script>
 
 <style lang="less">
-// #app {
-//   background-color: #f7f420;
-//   padding: 10px;
-// }
+#app {
+
+  padding: 10px;
+}
 </style>
